@@ -15,7 +15,7 @@ namespace GigsHub.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "I Make cha my page.";
+            ViewBag.Message = "About Changes";
 
             return View();
         }
