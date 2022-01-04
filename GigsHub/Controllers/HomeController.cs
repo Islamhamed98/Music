@@ -15,7 +15,7 @@ namespace GigsHub.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your page.";
+            ViewBag.Message = "I Make a changes in my page.";
 
             return View();
         }
