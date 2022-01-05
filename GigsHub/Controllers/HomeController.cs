@@ -15,15 +15,13 @@ namespace GigsHub.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "About Changes";
-
+            ViewBag.Message = "About Changes"; 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Message = "Your contact page."; 
             return View();
         }
     }
