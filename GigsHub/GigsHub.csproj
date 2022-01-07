@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202201061218228_BitOptimization.Designer.cs">
       <DependentUpon>202201061218228_BitOptimization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201071902443_AddNametoApplicationUser.cs" />
+    <Compile Include="Migrations\202201071902443_AddNametoApplicationUser.Designer.cs">
+      <DependentUpon>202201071902443_AddNametoApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201061218228_BitOptimization.resx">
       <DependentUpon>202201061218228_BitOptimization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201071902443_AddNametoApplicationUser.resx">
+      <DependentUpon>202201071902443_AddNametoApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
