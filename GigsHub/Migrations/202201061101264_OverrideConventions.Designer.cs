@@ -7,13 +7,13 @@ namespace GigsHub.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddGigTable : IMigrationMetadata
+    public sealed partial class OverrideConventions : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddGigTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OverrideConventions));
         
         string IMigrationMetadata.Id
         {
-            get { return "202201050006180_AddGigTable"; }
+            get { return "202201061101264_OverrideConventions"; }
         }
         
         string IMigrationMetadata.Source

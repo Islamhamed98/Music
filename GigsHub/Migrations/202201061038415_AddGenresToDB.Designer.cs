@@ -7,13 +7,13 @@ namespace GigsHub.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class PopulateGenresTable : IMigrationMetadata
+    public sealed partial class AddGenresToDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateGenresTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddGenresToDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202201050028141_PopulateGenresTable"; }
+            get { return "202201061038415_AddGenresToDB"; }
         }
         
         string IMigrationMetadata.Source
