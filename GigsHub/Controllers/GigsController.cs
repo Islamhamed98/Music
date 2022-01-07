@@ -25,11 +25,12 @@ namespace GigsHub.Controllers
                Genres = _context.Genres.ToList() 
             };           
             return View(GigViewModel);
-        }
+        } 
 
         // POST: Gig
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GigFormViewModel GigViewModel)
         {
             if (!ModelState.IsValid)
