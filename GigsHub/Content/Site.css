@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+span.field-validation-error {
+    color: #6e0f0f;
+    font-weight: bold;
+    font-size:15px;
+    font-family:Arial
+}
