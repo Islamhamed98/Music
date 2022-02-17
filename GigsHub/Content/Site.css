@@ -42,6 +42,10 @@ color:#FFF;
 .navbar-inverse .navbar-brand {
     color: #FFF;
 }
+.btn {
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
 /*  Page level styles  */
 .gigs {
     list-style: none;
@@ -81,8 +85,11 @@ color:#FFF;
     display:block;
 }
 
-    .gigs > li .details .genre {
-        font-size: 15px;
-        color: #7a5e5e;
-    }
+.gigs > li .details .genre {
+    font-size: 15px;
+    color: #7a5e5e;
+    display:inline-block;
+    margin:5px 20px 0 0 ;
+
+}
 

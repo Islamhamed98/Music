@@ -39,7 +39,7 @@ namespace GigsHub.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Attendance>()
-                .HasRequired(a => a.Gig)
+                .HasRequired(a => a.gig)
                 .WithMany()
                 .WillCascadeOnDelete(false);
                 
