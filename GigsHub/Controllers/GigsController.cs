@@ -79,8 +79,7 @@ namespace GigsHub.Controllers
                 DateTime = GigViewModel.GetDateTime(),
                 GenreId = GigViewModel.Genre,
                 Venue = GigViewModel.Venue
-            }; 
-            
+            };  
             _context.Gigs.Add(gig);
             _context.SaveChanges();  
             
