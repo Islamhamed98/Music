@@ -2,7 +2,10 @@
     padding-top: 90px;
     padding-bottom: 20px;
 }
-
+/*Global Styles*/
+li { 
+    list-style:none;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -46,6 +49,12 @@ color:#FFF;
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
+.navbar-inverse .navbar-nav > .open > a:focus{
+    color: #fff;
+    background-color: #c93737;
+}
+
+.
 /*  Page level styles  */
 .gigs {
     list-style: none;
