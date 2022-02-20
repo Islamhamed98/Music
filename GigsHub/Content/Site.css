@@ -6,6 +6,26 @@
 li { 
     list-style:none;
 }
+.voffset-1 {
+    margin-top: 20px;
+}
+.voffset-2 {
+    margin-top: 40px;
+}
+.voffset-3 {
+    margin-top: 60px;
+}
+.voffset-4 {
+    margin-top: 80px;
+}
+.voffset-5 {
+    margin-top: 100px;
+}
+.voffset-6 {
+    margin-top: 110px;
+}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -54,14 +74,20 @@ color:#FFF;
     background-color: #c93737;
 }
 
-.
+.form-control {
+    font-size: 17px;
+    height: 44px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
 /*  Page level styles  */
 .gigs {
     list-style: none;
 }   
 .gigs > li {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 .gigs > li .date {
     background-color: #f00;
@@ -101,4 +127,11 @@ color:#FFF;
     margin:5px 20px 0 0 ;
 
 }
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
 
+.gigs > li:hover .actions {
+    display: block;
+}

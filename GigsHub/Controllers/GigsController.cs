@@ -17,16 +17,39 @@ namespace GigsHub.Controllers
         {
             _context = new ApplicationDbContext();
         }
+
+
         // GET: Gigs
         [Authorize]
         public ActionResult Create()
         {
             var GigViewModel = new GigFormViewModel()
             {
-               Genres = _context.Genres.ToList() 
+                Genres = _context.Genres.ToList(),
+                Heading = "Add a Gig"
             };           
-            return View(GigViewModel);
-        } 
+            return View("GigForm", GigViewModel);
+        }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var gig = _context.Gigs.Single(g => g.Id == id && g.ArtistId == userId);
+
+            var GigViewModel = new GigFormViewModel()
+            {   
+                Heading = "Edit a Gig", 
+                Genres = _context.Genres.ToList(),
+                Date = gig.DateTime.ToString("d MMM yyyy"),
+                Id=gig.Id,
+                Time = gig.DateTime.ToString("HH:MM"),
+                Genre = gig.GenreId,
+                Venue = gig.Venue
+            };
+            return View("GigForm", GigViewModel);
+        }
+          
         [Authorize]
         public ActionResult Mine()
         {
@@ -34,14 +57,10 @@ namespace GigsHub.Controllers
             var gigs = _context.Gigs
                             .Where(g => g.ArtistId == userId && g.DateTime > DateTime.Now)
                             .Include(g => g.Genre)
-                            .ToList();
-             
-
+                            .ToList(); 
             return View(gigs);
         }
-
-
-
+         
         [Authorize]
         public ActionResult Attending()
         {
@@ -55,12 +74,10 @@ namespace GigsHub.Controllers
             {
                 UpcomingGigs = gigs,
                 ShowActions = User.Identity.IsAuthenticated
-            };
-
+            }; 
             return View("Gig" , viewModel);
         }
-
-
+         
         // POST: Gig
         [Authorize]
         [HttpPost]
@@ -85,7 +102,28 @@ namespace GigsHub.Controllers
             
             return RedirectToAction("Mine", "Gigs");
         }
+         
+        // POST: Gig
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(GigFormViewModel GigViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                GigViewModel.Genres = _context.Genres.ToList();
+                return View("GigForm", GigViewModel);   
+            } 
+            var userId = User.Identity.GetUserId();
+            var gig = _context.Gigs.Single(g => g.Id == GigViewModel.Id && g.ArtistId == userId);
+            gig.Venue = GigViewModel.Venue;
+            gig.DateTime = GigViewModel.GetDateTime();
+            gig.GenreId = GigViewModel.Genre;
+             
+            _context.SaveChanges();
 
-
+            return RedirectToAction("Mine", "Gigs");
+        }
+         
     }
 }

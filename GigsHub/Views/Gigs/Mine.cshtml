@@ -4,7 +4,7 @@
 }
 
 <h2>My Upcoming Gigs</h2>
-<ul class="gigs">
+<ul class="gigs voffset-2">
     @foreach (var gig in Model)
     {
         <li>
@@ -23,7 +23,10 @@
                 <span class="genre">
                     @gig.Genre.Name
                 </span> 
-            </div>
+                <div class="actions">
+                    <a href="@Url.Action("Edit","Gigs",new { id = gig.Id })"> Edit </a>
+                </div>
+            </div> 
         </li>
 
     }
