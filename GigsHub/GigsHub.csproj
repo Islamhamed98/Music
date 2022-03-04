@@ -178,9 +178,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Controllers\Api\AttendancesController.cs" />
     <Compile Include="Controllers\FolloweesController.cs" />
-    <Compile Include="Controllers\FollowingsController.cs" />
+    <Compile Include="Controllers\Api\FollowingsController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -221,6 +222,14 @@
     <Compile Include="Migrations\202202171735321_addFollowingTbl.Designer.cs">
       <DependentUpon>202202171735321_addFollowingTbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202200300110_addIsCanceledColumnToGigtbl.cs" />
+    <Compile Include="Migrations\202202200300110_addIsCanceledColumnToGigtbl.Designer.cs">
+      <DependentUpon>202202200300110_addIsCanceledColumnToGigtbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203040113187_AddNotificationSystem.cs" />
+    <Compile Include="Migrations\202203040113187_AddNotificationSystem.Designer.cs">
+      <DependentUpon>202203040113187_AddNotificationSystem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -229,6 +238,9 @@
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\UserNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
@@ -246,6 +258,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -338,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202171735321_addFollowingTbl.resx">
       <DependentUpon>202202171735321_addFollowingTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202200300110_addIsCanceledColumnToGigtbl.resx">
+      <DependentUpon>202202200300110_addIsCanceledColumnToGigtbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203040113187_AddNotificationSystem.resx">
+      <DependentUpon>202203040113187_AddNotificationSystem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,6 +6,7 @@ namespace GigsHub.Models
     public class Gig
     {
         public int Id { get; set; }
+        public bool  IsCanceled { get; set; }
         public ApplicationUser Artist { get; set; }
         [Required]
         public string ArtistId { get; set; }

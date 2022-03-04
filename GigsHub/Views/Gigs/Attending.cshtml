@@ -4,9 +4,9 @@
     ViewBag.Title = "Attending";
 }
 
-<h2>Attending</h2>
 
 
+<h2 class="text-center">Attending</h2>
 
 <ul class="gigs">
     @foreach (var gig in Model.UpcomingGigs)
@@ -23,6 +23,7 @@
             <div class="details">
                 <span class="artist">
                     @gig.Artist.Name
+                    
                     @if (Model.ShowActions)
                     {
                         <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@gig.ArtistId"> Following</button>
@@ -40,3 +41,4 @@
 
     }
 </ul>
+ 
