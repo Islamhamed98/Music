@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
@@ -10,28 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace GigsHub.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
-    {
-        [StringLength(255)]
-        [Required]
-        public string Name { get; set; } 
-        public ICollection<Following> Followers { get; set; }
-        public ICollection<Following> Followees { get; set; }
-        public ApplicationUser()
-        {
-            Followees = new Collection<Following>();
-            Followers = new Collection<Following>();
-        }
-
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
-        {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
-        }
-    }
-
+    
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {   
         public DbSet<Gig> Gigs { get; set; }
@@ -53,7 +33,7 @@ namespace GigsHub.Models
         {
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.gig)
-                .WithMany()
+                .WithMany( g=>g.Attendances)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ApplicationUser>()
@@ -65,9 +45,10 @@ namespace GigsHub.Models
                             .HasMany(a => a.Followees)
                             .WithRequired(f => f.Follower)
                             .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<UserNotification>()
                 .HasRequired(n => n.User)
-                .WithMany()
+                .WithMany(u => u.UserNotifications)
                 .WillCascadeOnDelete(false);
 
 

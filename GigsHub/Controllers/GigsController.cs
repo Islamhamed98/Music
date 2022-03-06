@@ -114,12 +114,14 @@ namespace GigsHub.Controllers
                 GigViewModel.Genres = _context.Genres.ToList();
                 return View("GigForm", GigViewModel);   
             } 
+            
             var userId = User.Identity.GetUserId();
-            var gig = _context.Gigs.Single(g => g.Id == GigViewModel.Id && g.ArtistId == userId);
-            gig.Venue = GigViewModel.Venue;
-            gig.DateTime = GigViewModel.GetDateTime();
-            gig.GenreId = GigViewModel.Genre;
+            var gig = _context.Gigs
+                .Include(g => g.Attendances)
+                .Single(g => g.Id == GigViewModel.Id && g.ArtistId == userId);
              
+            gig.Modify(GigViewModel.Venue, GigViewModel.GetDateTime(), GigViewModel.Genre);
+              
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");
